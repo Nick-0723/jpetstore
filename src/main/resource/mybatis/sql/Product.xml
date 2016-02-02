@@ -1,0 +1,40 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" 
+	"http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="Product">
+
+  <select id="getProduct" resultType="product" parameterType="string">
+    SELECT
+      PRODUCTID,
+      NAME,
+      DESCN as description,
+      CATEGORY as categoryId
+    FROM PRODUCT
+    WHERE PRODUCTID =#{productId}
+  </select>
+
+  <select id="getProductListByCategory" resultType="product" parameterType="string">
+    SELECT
+      PRODUCTID,
+      NAME,
+      DESCN as description,
+      CATEGORY as categoryId
+    FROM PRODUCT
+    WHERE CATEGORY =#{value}
+  </select>
+
+  <select id="searchProductList" resultType="product" >
+    select
+      PRODUCTID,
+      NAME,
+      DESCN as description,
+      CATEGORY as categoryId
+    from PRODUCT
+    <where>
+    	<foreach collection="keywordList" item="keyword" open="" close="" separator="OR" >
+    		lower(name) like#{keyword} OR lower(category) like#{keyword} OR lower(descn) like#{keyword}
+    	</foreach>
+    </where>
+  </select>
+
+</mapper>
