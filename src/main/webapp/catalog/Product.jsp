@@ -34,10 +34,10 @@
       </tr>
     </c:forEach>
     <tr><td>
-    	<c:if test="${!firstPage}">
+    	<c:if test="${firstPage}">
     		<a class="Button" href="shop/viewProduct.shtml?pageDirection=previous&productId=">&lt;&lt; Prev</a>
     	</c:if>
-    	<c:if test="${!lastPage}">
+    	<c:if test="${lastPage}">
     		<a class="Button" href="shop/viewProduct.shtml?pageDirection=next&productId=">Next &gt;&gt;</a>
     	</c:if>
     </td></tr>

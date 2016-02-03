@@ -10,9 +10,9 @@
 
     <table>
       <tr>
-        <td>User ID:</td><td><input type="text" name="account.username"/></td>
+        <td>User ID:</td><td><input type="text" name="username"/></td>
       </tr><tr>
-      <td>New password:</td><td><input type="password" name="account.password"/></td>
+      <td>New password:</td><td><input type="password" name="password"/></td>
     </tr><tr>
       <td>Repeat password:</td><td><input type="password" name="repeatedPassword"/></td>
     </tr>

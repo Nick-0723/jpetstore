@@ -13,7 +13,7 @@
       <tr>
         <td>User ID:</td><td>${account.username}</td>
       </tr><tr>
-      <td>New password:</td><td><input type="password" name="account.password"/></td>
+      <td>New password:</td><td><input type="password" name="password"/></td>
     </tr><tr>
       <td>Repeat password:</td><td><input type="password" name="repeatedPassword"/></td>
     </tr>

@@ -26,11 +26,11 @@
 			</tr>
 		</c:forEach>
 		<tr>
-			<td><c:if test="${!firstPage}">
+			<td><c:if test="${firstPage}">
 					<a href="shop/searchProducts.shtml?pageDirection=previous&keyword=">&lt;&lt;
 						Previous</a>			
 				</c:if>
-				<c:if test="${!lastPage}">
+				<c:if test="${lastPage}">
 					<a href="shop/searchProducts.shtml?pageDirection=next&keyword=">Next
 						&gt;&gt;</a>			
 				</c:if>

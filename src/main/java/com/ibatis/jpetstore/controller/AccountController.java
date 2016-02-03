@@ -64,11 +64,11 @@ public class AccountController {
 	}
 
 	@RequestMapping("shop/newAccount")
-	public String newAccount(@RequestParam Account account, HttpServletRequest request, ModelMap map) {
+	public String newAccount(Account account, HttpServletRequest request, ModelMap map) {
 		accountService.insertAccount(account);
 		request.getSession().setAttribute("account", account);
 		request.getSession().setAttribute("myList", catalogService.getProductListByCategory(account.getFavouriteCategoryId()));
-		return "forward:show/index";
+		return "redirect:/shop/index.shtml";
 	}
 
 	@RequestMapping("shop/editAccountForm")
@@ -80,11 +80,11 @@ public class AccountController {
 	}
 
 	@RequestMapping("shop/editAccount")
-	public String editAccount(@RequestParam Account account, HttpServletRequest request, ModelMap map) {
+	public String editAccount(Account account, HttpServletRequest request, ModelMap map) {
 		Account accountSession = (Account) request.getSession().getAttribute("account");
 		account.setUsername(accountSession.getUsername());
 		accountService.updateAccount(account);
-		return "forward:show/index";
+		return "redirect:/shop/index.shtml";
 	}
 
 	@RequestMapping("shop/signon")
@@ -105,7 +105,7 @@ public class AccountController {
 	@RequestMapping("shop/signoff")
 	public String signoff(HttpServletRequest request) {
 		request.getSession().invalidate();
-		return "forward:show/index";
+		return "redirect:/shop/index.shtml";
 	}
 	
 	@RequestMapping("shop/signonForm")

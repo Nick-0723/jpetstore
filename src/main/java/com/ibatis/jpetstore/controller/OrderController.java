@@ -10,6 +10,7 @@ import java.util.ArrayList;
 import java.util.Collections;
 import java.util.List;
 
+import javax.annotation.Resource;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpSession;
 
@@ -18,7 +19,6 @@ import org.slf4j.LoggerFactory;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.ModelMap;
 import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RequestParam;
 
 import com.ibatis.jpetstore.domain.Account;
 import com.ibatis.jpetstore.domain.Cart;
@@ -44,7 +44,10 @@ public class OrderController {
 		CARD_TYPE_LIST = Collections.unmodifiableList(cardList);
 	}
 
+	@Resource
 	private AccountService accountService;
+	
+	@Resource
 	private OrderService orderService;
 
 	@RequestMapping("shop/newOrderForm")
@@ -71,9 +74,7 @@ public class OrderController {
 	}
 
 	@RequestMapping("shop/newOrderDispatch")
-	public String newOrderDispatch(@RequestParam(value = "order") Order order,
-			@RequestParam(value = "source") String source,
-			@RequestParam(value = "shippingAddressRequired") boolean shippingAddressRequired,
+	public String newOrderDispatch(Order order, String source, boolean shippingAddressRequired,
 			HttpServletRequest request, ModelMap map) {
 		Order orderInSession = (Order) request.getSession().getAttribute("order");
 		if (shippingAddressRequired) {
@@ -85,7 +86,7 @@ public class OrderController {
 			}else{
 				orderInSession.updateByForm(order, null);
 			}
-			return "forward:show/confirm";
+			return "forward:/shop/confirm.shtml";
 		} 
 	}
 

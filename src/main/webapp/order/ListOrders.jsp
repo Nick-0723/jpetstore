@@ -14,10 +14,10 @@
   </c:forEach>
 </table>
 
-<c:if test="${!firstPage}">
+<c:if test="${firstPage}">
 	<a href="switchOrderPage.shtml?pageDirection=previous">&lt;&lt; Previous</a>
 </c:if>
-<c:if test="${!lastPage}">
+<c:if test="${lastPage}">
 	<a href="switchOrderPage.shtml?pageDirection=next">Next &gt;&gt;</a>
 </c:if>
 

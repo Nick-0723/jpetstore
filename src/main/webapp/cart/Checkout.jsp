@@ -45,10 +45,10 @@
             </td>
           </tr>
         </table>
-        <c:if test="${!firstPage}">
+        <c:if test="${firstPage}">
         	<a href="switchCartPage.shtml?pageDirection=previous">&lt;&lt; Previous</a>
         </c:if>
-        <c:if test="${!lastPage}">
+        <c:if test="${lastPage}">
         	<a href="switchCartPage.shtml?pageDirection=next">Next &gt;&gt;</a>
         </c:if>
         <a class="Button" href="shop/newOrderForm.shtml">Continue</a>

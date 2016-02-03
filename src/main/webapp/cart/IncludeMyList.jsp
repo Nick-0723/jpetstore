@@ -19,10 +19,10 @@
   </ul>
 
   <p>
-  	<c:if test="${!firstPage}">
+  	<c:if test="${firstPage}">
   	      <a href="switchMyListPage.shtml?pageDirection=previous&account.listOption=${sessionScope.account.listOption}&account.bannerOption=${accountBean.account.bannerOption}">&lt;&lt;Prev</a>
   	</c:if>
-  	<c:if test="${!lastPage}">
+  	<c:if test="${lastPage}">
 		  <a href="switchMyListPage.shtml?pageDirection=next&account.listOption=${sessionScope.account.listOption}&account.bannerOption=${accountBean.account.bannerOption}">Next &gt;&gt;</a>
   	</c:if>
   </p>

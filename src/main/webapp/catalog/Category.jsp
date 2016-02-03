@@ -27,11 +27,11 @@
 		</c:forEach>
 		<tr>
 			<td colspan="2">
-				<c:if test="${!firstPage}">
+				<c:if test="${firstPage}">
 					<a class="Button" href="shop/viewCategory.shtml?pageDirection=previous&categoryId=">&lt;&lt;
 						Prev</a>				
 				</c:if>
-				<c:if test="${!lastPage}">
+				<c:if test="${lastPage}">
 					<a class="Button" href="shop/viewCategory.shtml?pageDirection=next&categoryId=">Next
 						&gt;&gt;</a>				
 				</c:if>
